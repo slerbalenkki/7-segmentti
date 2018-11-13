@@ -1,15 +1,14 @@
-#define LED1 5
-#define LED2 4
-#define LED3 9
-#define LED4 10
-#define LED5 11
-#define LED6 6
-#define LED7 7
-#define DOT 8
+#define LED1  5  //A
+#define LED2  4  //B
+#define LED3  9  //C
+#define LED4  10 //D
+#define LED5  11 //E
+#define LED6  6  //F
+#define LED7  7  //G
+#define DOT   8  //DP
 
 #define LEDON LOW
 #define LEDOFF HIGH
-#define WAIT 500
 
 
 void setup() {
@@ -21,12 +20,53 @@ void setup() {
   pinMode(LED6, OUTPUT);
   pinMode(LED7, OUTPUT);
   pinMode(DOT, OUTPUT);
+  Serial.begin(9600);
   allOff();
 }
+
+void showNum(int x){
+  if(x==0){
+    nolla();
+  }else if(x==1){
+    yksi();
+  }else if(x==2){
+    kaksi();
+  }else if(x==3){
+    kolme();
+  }else if(x==4){
+    nelja();
+  }else if(x==5){
+    viisi();
+  }else if(x==6){
+    kuusi();
+  }else if(x==7){
+    seitseman();
+  }else if(x==8){
+    kahdeksan();
+  }else if(x==9){
+    yhdeksan();
+  }else {
+    piste();
+  }
+}
+
+int num=0;
+void loop() {
+
+ showNum(num++);
+ delay(200);
+  if(num==10){
+    num=0;
+  }
+}
+
+
+
 //Sytytä parametrina annettu ledi
 void turnOn(int led){
   digitalWrite(led, LEDON);
 }
+
 //Sammuta parametrina annuttu ledi
 void turnOff(int led){
   digitalWrite(led, LEDOFF);
@@ -83,7 +123,7 @@ void kolme(){
   turnOn  (LED7);
   turnOff (DOT);
 }
-void nelkku(){
+void nelja(){
   turnOff (LED1);
   turnOn  (LED2);
   turnOn  (LED3);
@@ -93,7 +133,7 @@ void nelkku(){
   turnOn  (LED7);
   turnOff (DOT);
 }
-void femma(){
+void viisi(){
   turnOn  (LED1);
   turnOff (LED2);
   turnOn  (LED3);
@@ -103,7 +143,7 @@ void femma(){
   turnOn  (LED7);
   turnOff (DOT);
 }
-void kutonen(){
+void kuusi(){
   turnOn  (LED1);
   turnOff (LED2);
   turnOn  (LED3);
@@ -113,7 +153,7 @@ void kutonen(){
   turnOn  (LED7);
   turnOff (DOT);
 }
-void seiska(){
+void seitseman(){
   turnOn  (LED1);
   turnOn  (LED2);
   turnOn  (LED3);
@@ -123,7 +163,7 @@ void seiska(){
   turnOff (LED7);
   turnOff (DOT);
 }
-void kasi(){
+void kahdeksan(){
   turnOn  (LED1);
   turnOn  (LED2);
   turnOn  (LED3);
@@ -133,7 +173,7 @@ void kasi(){
   turnOn  (LED7);
   turnOff  (DOT);
 }
-void ysi(){
+void yhdeksan(){
   turnOn  (LED1);
   turnOn  (LED2);
   turnOn  (LED3);
@@ -154,29 +194,4 @@ void piste(){
   turnOn   (DOT);
 }
 
-void loop() {
-  allOff();
-  delay(WAIT);
-  nolla();
-  delay(WAIT);
-  yksi();
-  delay(WAIT);
-  kaksi();
-  delay(WAIT);
-  kolme();
-  delay(WAIT);
-  nelkku();
-  delay(WAIT);
-  femma();
-  delay(WAIT);
-  kutonen();
-  delay(WAIT);
-  seiska();
-  delay(WAIT);
-  kasi();
-  delay(WAIT);
-  ysi();
-  delay(WAIT);
-  piste();
-  delay(WAIT);
-}
+
