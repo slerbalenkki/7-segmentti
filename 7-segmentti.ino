@@ -2,6 +2,11 @@
 #define LED2 12
 #define LED3 11
 #define LED4 10
+#define SEG1  7
+#define SEG2  6
+#define SEG3  5
+#define SEG4  4
+
 
 #define LEDON HIGH
 #define LEDOFF LOW
@@ -14,6 +19,10 @@ void setup() {
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
   pinMode(LED4, OUTPUT);
+  pinMode(SEG1, OUTPUT);
+  pinMode(SEG2, OUTPUT);
+  pinMode(SEG3, OUTPUT);
+  pinMode(SEG4, OUTPUT);  
   Serial.begin(9600);
 }
 
@@ -103,26 +112,48 @@ void kymppi() {
 }
 
 void loop() {
+  digitalWrite(SEG1, HIGH);
   nolla();
   delay(viive);
+  digitalWrite(SEG1, LOW);
+  digitalWrite(SEG2, HIGH);
   yksi();
   delay(viive);
+  digitalWrite(SEG2,LOW);
+  digitalWrite(SEG3, HIGH);
   kaksi();
   delay(viive);
+  digitalWrite(SEG3, LOW);
+  digitalWrite(SEG4, HIGH);
   kolme();
   delay(viive);
+  digitalWrite(SEG4, LOW);
+  digitalWrite(SEG1, HIGH);
   nelja();
   delay(viive);
+  digitalWrite(SEG1, LOW);
+  digitalWrite(SEG2, HIGH);
   viisi();
   delay(viive);
+  digitalWrite(SEG2, LOW);
+  digitalWrite(SEG3, HIGH);
   kuusi();
   delay(viive);
+  digitalWrite(SEG3, LOW);
+  digitalWrite(SEG4, HIGH);
   seiska();
   delay(viive);
+  digitalWrite(SEG4, LOW);
+  digitalWrite(SEG1, HIGH);
   kasi();
   delay(viive);
+  digitalWrite(SEG1, LOW);
+  digitalWrite(SEG2, HIGH);
   ysi();
   delay(viive);
+  digitalWrite(SEG2, LOW);
+  digitalWrite(SEG3, HIGH);
   kymppi();
   delay(viive);
+  digitalWrite(SEG3, LOW);
 }
